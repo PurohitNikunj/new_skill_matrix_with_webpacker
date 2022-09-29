@@ -1,0 +1,15 @@
+<%= form_with(model: [@user_skill, @user_sub_skill], local: true, id: 'partial_form') do |form|%>
+    
+  <%= form.label :Sub_Skill %>
+  <%= form.collection_select :sub_skill_set_id, @user_skill.skill_set.sub_skill_set.order(:sub_skill_name),:id,:sub_skill_name %>
+  <br>
+  <%= form.label :proficiency%>
+  <%= form.select :proficiency, UserSubSkill.proficiencies.keys  %>
+
+  <%= form.label :starting_date,"Start Date", style: "display: block" %>
+  <%= form.date_field :starting_date%>
+
+  <%= form.label :last_used_date,"Last Used Date", style: "display: block" %>
+  <%= form.date_field :last_used_date%><br>
+
+<%end%>

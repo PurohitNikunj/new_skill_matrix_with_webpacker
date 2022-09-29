@@ -1,0 +1,4 @@
+<%= turbo_stream.update @skill_target do %>
+  <%= options_from_collection_for_select(@skill_set, :id, :skill_name, :none) %>  
+<% end %>
+  

@@ -1,0 +1,50 @@
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+<%= render 'filter'%><hr>
+
+<table class="table table-striped"> 
+ <tr> 
+    <th>Name</th><th>Department</th><th>Primary Skills</th><th>Secondary Skills</th>
+  </tr>  
+  <% @user.each do |user| %> 
+    <tr> 
+      <td><%=user.name %></td>
+      <td><%= user.department.department_name%></td>
+      <td>
+        <% user.user_skills.primary.each do |sk| %>
+          <%= sk.skill_set.skill_name%>|
+        <%end%>
+      </td>
+
+      <td>
+        <% user.user_skills.secondary.each do |sk| %>
+          <%= sk.skill_set.skill_name%>|
+        <%end%>
+      </td>
+      
+    </tr>
+  <% end %>
+</table>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModal">Primary</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="exampleForm">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" data-dismiss="modal">Close</button>
+        <button type="submit" form="popup_form" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>

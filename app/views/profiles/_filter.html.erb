@@ -1,0 +1,18 @@
+<%= search_form_for  @q , url:manager_path do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name_cont, class: 'form-control' %> <br>   
+  
+  <%= f.label :designation %>
+  <%= f.select(:designation_eq, options_for_select(User.designations.map {|k, v| [k.humanize.capitalize, v]}, f.object.designation_eq), { include_blank: "--Select--" }, {class: "form-select" }) %><br>
+  
+  <%= f.label :department %>
+  <%= f.collection_select :department_id_eq, Department.all, :id, :department_name, { include_blank: "--Select--" } , {class: "form-select" }%><br>
+
+  <%= f.label :Primaryskill, class:"regular caption" %>
+  <%= f.collection_select :user_skills_skill_set_id_eq, @current_user.department.skill_sets, :id, :skill_name, { include_blank: "--Select--" }, {class: "form-select" }%><br>
+
+  <%= f.label :secondary_skill%>
+  <%= f.collection_select :user_skills_skill_set_id_or_user_skills_status_eq, SkillSet.all, :id, :skill_name , { include_blank: "--Select--" }, {class: "form-select" }%><br>
+
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>

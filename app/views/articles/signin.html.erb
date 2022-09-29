@@ -1,0 +1,27 @@
+<div class="signIN">
+    <header class="header">
+        <%= image_tag("simformLogo.svg",:alt=> "Simform Logo" ,class:"logo-img") %>
+    </header>
+    <div class="main">
+        <div class="mainWrapper">
+            <h2 class="text-center mainWrapper_title">Sign In</h2>
+            <p class="text-center mainWrapper_text">Sign In to Continue</p>
+            <% if @user_name %>
+                <h4>Welcome <%= @user_name %>!</h4>
+                <h4>Your designation is <%= @jobtitle %></h4>
+                <h4>Your department is <%= @department %></h4>
+                <p>Use the navigation bar at the top of the page to get started.</p>
+            <% else %>
+                <%= button_to image_tag("officeIcon.svg",:alt=> "Office Logo" ,class:"logo-img") + "Sign In with Office 365", "/auth/microsoft_graph_auth", method: :post, class: "btn btn-primary btn-large" %>
+            <% end %>
+            <%# <%= button_to image_tag("officeIcon.svg",:alt=> "Office Logo" ,class:"logo-img") + "Sign In with Office 365", profiles_path, method: :get, class: "btn btn-primary mainWrapper_btn" %>
+            <!-- <button class="btn btn-primary mainWrapper_btn" >
+                <%= image_tag("officeIcon.svg",:alt=> "Office Logo" ,class:"logo-img") %>
+                    Sign In with Office 365
+            </button> -->
+        </div>
+        <div class="bannerWrapper">
+            <%= image_tag("bannerImg.png",:alt=> "Office Logo" ,class:"logo-img") %>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<div data-controller="primarystack">
+  <%= form_with(model: @user_skill, local: true, id: 'partial_form') do |form|%>
+    <h2> Select <%= @skill_type %> Skill</h2>
+    <%= form.hidden_field :skill_type, value: @skill_type%>
+
+    <div class="field">
+    <%= form.label :Select_Stack %>
+    <%= form.collection_select :Stack, @primary_techstacks, :id, :stack_name, {},   data: { action: 'change->primarystack#change' } %>
+    </div>
+
+    <div class="field">
+        <%= form.label :Select_Skill %>
+        <%= form.collection_select :skill_set_id, [], [], [], {}, { id: "skill_set_id", data: {primarystack_target: "skill_set" } } %>    </div>
+    <%= form.label :proficiency%>
+    <%= form.select :proficiency, UserSkill.proficiencies.keys  %>
+
+    <%= form.label :starting_date,"Start Date", style: "display: block" %>
+    <%= form.date_field :starting_date%>
+
+    <%= form.label :last_used_date,"Last Used Date", style: "display: block" %>
+    <%= form.date_field :last_used_date%><br>
+
+  <%end%>
+</div>

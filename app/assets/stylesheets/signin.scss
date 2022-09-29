@@ -1,0 +1,33 @@
+@import './variables.scss';
+
+.signIN {
+    height: 100vh;
+    background-color: $lightPink;
+    background-image: linear-gradient(180deg, $lightPink, $white);
+    .main {
+        max-width: 933px;
+        margin: 0 auto;
+        .mainWrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+            &_title {
+                font-weight: 700;
+                color: $darkGrey;
+                margin-bottom: 6px;
+            }
+            &_text {
+                font-size: 14px;
+                color: $grey;
+                margin-bottom: 35px;
+            }
+            &_btn {
+                img {
+                    margin-right: 16px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,11 @@
+<h1> Showing User Details</h1>
+<br>
+<p> <strong>Name: </strong><%= @user.name%> </p>
+<p> <strong>Email: </strong><%= @user.email%></p>
+<p> <strong>Phone number: </strong><%= @user.phone_number%></p>
+<p> <strong>Designation: </strong><%= @user.designation%> </p>
+<p> <strong>Career start date: </strong><%= @user.career_start_date%></p>
+<p> <strong>Drop in career: </strong><%= @user.drop_in_career%></p>
+<p> <strong>About: </strong><%= @user.about%> </p>
+<br>
+<%=  link_to 'Return to Profile page', profiles_path%>
